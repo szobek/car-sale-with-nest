@@ -21,7 +21,7 @@ export class UsersService {
     return this.usersRepository.findOne({ where: { id } });
   }
   async update(id: number, attrs: Partial<User>) {
-    const user = await this.usersRepository.findOne({ where: { id } });
+    const user = await this.findOne(id);
     if (!user) {
       throw new Error('user not found');
     }
@@ -29,4 +29,11 @@ export class UsersService {
     return this.usersRepository.save(user);
   }
 
+  async remove(id: number) {
+    const user = await this.findOne(id);
+    if (!user) {
+      throw new Error('user not found');
+    }
+    return this.usersRepository.remove(user);
+  }
 }
