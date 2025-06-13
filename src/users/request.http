@@ -16,5 +16,5 @@ PATCH http://localhost:3000/auth/2
 content-type: application/json
 
 {
-    "password":"test"
+    "password":"test222222222222222222"
 }
